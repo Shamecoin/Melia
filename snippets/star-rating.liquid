@@ -1,0 +1,16 @@
+{%- comment -%}
+  Renders a 5-star rating display. Accepts `rating` (0-5, decimals rounded
+  to the nearest whole star).
+{%- endcomment -%}
+{%- liquid
+  assign rounded_rating = rating | round
+-%}
+<span class="star-rating" aria-hidden="true">
+  {%- for i in (1..5) -%}
+    {%- if i <= rounded_rating -%}
+      {%- render 'icon-star', filled: true -%}
+    {%- else -%}
+      {%- render 'icon-star', filled: false -%}
+    {%- endif -%}
+  {%- endfor -%}
+</span>

@@ -48,9 +48,39 @@
     "crafted-by-nature": {
       "type": "crafted-by-nature"
     },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "name": "Eleni P.",
+            "rating": 5,
+            "quote": "The chestnut honey is unlike anything I've had — deep, almost smoky. You can tell it's the real thing."
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "name": "James R.",
+            "rating": 5,
+            "quote": "Ordered the gift bundle for my parents and they haven't stopped talking about it. Beautifully packaged too."
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "name": "Sofia M.",
+            "rating": 4,
+            "quote": "Forest honey has become a breakfast staple in our house. Rich, not overly sweet, and clearly high quality."
+          }
+        }
+      },
+      "block_order": ["review-1", "review-2", "review-3"]
+    },
     "spacer": {
       "type": "content-placeholder"
     }
   },
-  "order": ["hero", "honey-tabs", "crafted-by-nature", "spacer"]
+  "order": ["hero", "honey-tabs", "crafted-by-nature", "reviews", "spacer"]
 }
