@@ -1,0 +1,77 @@
+{%- comment -%}
+  Full-bleed image + centered text block, modeled on Egmont Honey's
+  "Crafted By Nature" section. Sits below the hero, so it deliberately
+  does NOT carry `data-hero` — the transparent-over-hero header behavior
+  only applies to the homepage's first section.
+{%- endcomment -%}
+
+<section class="crafted">
+  <div class="crafted__media">
+    {%- if section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 2000 }}"
+        alt=""
+        class="crafted__image"
+        loading="lazy"
+      >
+    {%- else -%}
+      <div class="crafted__placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+    <div class="crafted__scrim" aria-hidden="true"></div>
+  </div>
+
+  <div class="crafted__content">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="crafted__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.body != blank -%}
+      <div class="crafted__body">{{ section.settings.body }}</div>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+      <a href="{{ section.settings.button_link }}" class="crafted__button">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Crafted by Nature",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image",
+      "info": "Full-bleed. Leave empty to show a placeholder until real photography is ready."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Crafted by Nature"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body text",
+      "default": "<p>Every jar begins in the wild — Greek forests, wildflower meadows, and mountain slopes where the bees do the work nature intended.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/pages/about-us"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Crafted by Nature"
+    }
+  ]
+}
+{% endschema %}

@@ -45,9 +45,12 @@
     "honey-tabs": {
       "type": "honey-tabs"
     },
+    "crafted-by-nature": {
+      "type": "crafted-by-nature"
+    },
     "spacer": {
       "type": "content-placeholder"
     }
   },
-  "order": ["hero", "honey-tabs", "spacer"]
+  "order": ["hero", "honey-tabs", "crafted-by-nature", "spacer"]
 }
