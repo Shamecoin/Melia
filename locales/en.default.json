@@ -37,6 +37,15 @@
     },
     "content_placeholder": {
       "body": "Placeholder content — scroll to see the header pick up its solid background once it clears the hero above."
+    },
+    "honey_tabs": {
+      "varietal": "Varietal Honeys",
+      "exclusive": "Exclusive & Limited Edition",
+      "giftpacks": "Exclusive Giftpack Bundles"
     }
+  },
+  "products": {
+    "view_more": "View More",
+    "coming_soon": "Coming soon."
   }
 }

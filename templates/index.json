@@ -42,9 +42,12 @@
       },
       "block_order": ["chestnut-honey", "forest-honey", "heather-and-ivy-honey", "gift-bundle"]
     },
+    "honey-tabs": {
+      "type": "honey-tabs"
+    },
     "spacer": {
       "type": "content-placeholder"
     }
   },
-  "order": ["hero", "spacer"]
+  "order": ["hero", "honey-tabs", "spacer"]
 }
