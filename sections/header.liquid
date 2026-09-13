@@ -1,0 +1,246 @@
+{%- comment -%}
+  Site header — structural shell + scroll/mega-menu/overlay behavior only.
+  Mega menu and mobile menu inner content are placeholders; real menu
+  content is wired up in a later step.
+{%- endcomment -%}
+
+<header
+  class="site-header{% if section.settings.enable_transparent_header %} site-header--transparent-enabled{% endif %}"
+  data-site-header
+>
+  <div class="site-header__inner">
+
+    <div class="site-header__zone site-header__zone--left">
+      <button
+        type="button"
+        class="site-header__hamburger"
+        data-mobile-menu-toggle
+        aria-expanded="false"
+        aria-controls="MobileMenu"
+      >
+        <span class="site-header__hamburger-bar"></span>
+        <span class="site-header__hamburger-bar"></span>
+        <span class="site-header__hamburger-bar"></span>
+        <span class="visually-hidden">{{ 'header.menu' | t }}</span>
+      </button>
+
+      <nav class="site-header__nav" aria-label="{{ 'header.main_nav' | t }}">
+        <ul class="site-header__nav-list" role="list">
+          <li class="site-header__nav-item">
+            <button
+              type="button"
+              class="site-header__nav-link"
+              data-mega-menu-trigger="shop"
+              aria-expanded="false"
+              aria-controls="MegaMenu-shop"
+            >
+              {{ 'header.nav.shop' | t }}
+            </button>
+          </li>
+          <li class="site-header__nav-item">
+            <button
+              type="button"
+              class="site-header__nav-link"
+              data-mega-menu-trigger="learn"
+              aria-expanded="false"
+              aria-controls="MegaMenu-learn"
+            >
+              {{ 'header.nav.learn' | t }}
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="site-header__zone site-header__zone--center">
+      <a href="{{ routes.root_url }}" class="site-header__logo-link">
+        {%- if section.settings.logo -%}
+          <img
+            class="site-header__logo-image"
+            src="{{ section.settings.logo | image_url: width: 480 }}"
+            width="{{ section.settings.logo_width }}"
+            height="{{ section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio }}"
+            alt="{{ shop.name }}"
+            loading="eager"
+          >
+        {%- else -%}
+          <span class="site-header__logo-text">{{ shop.name | default: 'Thermae Organics' }}</span>
+        {%- endif -%}
+        <span class="site-header__tagline">{{ 'header.tagline' | t }}</span>
+      </a>
+    </div>
+
+    <div class="site-header__zone site-header__zone--right">
+      {%- comment -%}
+        Currency/region selector. Multi-currency (Shopify Markets) is not yet
+        enabled on this store — this is a visual stub only, showing the UK
+        market as the sole option. Once Markets is enabled, replace this
+        block with the localization_form and a real currency/country list.
+      {%- endcomment -%}
+      <div class="site-header__currency" data-currency-selector>
+        <button
+          type="button"
+          class="site-header__currency-trigger"
+          data-currency-toggle
+          aria-expanded="false"
+          aria-controls="CurrencyPanel"
+        >
+          <span>{{ 'header.currency.current' | t }}</span>
+          {% render 'icon-chevron' %}
+        </button>
+        <div class="site-header__currency-panel" id="CurrencyPanel" data-currency-panel hidden>
+          <ul role="list">
+            <li>
+              <button type="button" class="site-header__currency-option is-active" type="button">
+                {{ 'header.currency.uk' | t }}
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <a
+        href="{{ routes.account_url }}"
+        class="site-header__icon-link"
+        data-icon="account"
+        aria-label="{{ 'header.account' | t }}"
+      >
+        {% render 'icon-account' %}
+      </a>
+
+      <button
+        type="button"
+        class="site-header__icon-link"
+        data-search-toggle
+        aria-label="{{ 'header.search' | t }}"
+        aria-expanded="false"
+        aria-controls="SearchOverlay"
+      >
+        {% render 'icon-search' %}
+      </button>
+
+      <a
+        href="{{ routes.cart_url }}"
+        class="site-header__icon-link site-header__cart-link"
+        aria-label="{{ 'header.cart' | t }}"
+      >
+        {% render 'icon-cart' %}
+        <span
+          class="site-header__cart-count"
+          data-cart-count
+          {% if cart.item_count == 0 %}hidden{% endif %}
+        >{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="mega-menu" id="MegaMenu-shop" data-mega-menu="shop" hidden>
+    <div class="mega-menu__inner">
+      <p class="mega-menu__placeholder">{{ 'header.mega_menu.shop_placeholder' | t }}</p>
+    </div>
+  </div>
+
+  <div class="mega-menu" id="MegaMenu-learn" data-mega-menu="learn" hidden>
+    <div class="mega-menu__inner">
+      <p class="mega-menu__placeholder">{{ 'header.mega_menu.learn_placeholder' | t }}</p>
+    </div>
+  </div>
+</header>
+
+<div class="site-header__backdrop" data-header-backdrop hidden></div>
+
+<div class="search-overlay" id="SearchOverlay" data-search-overlay hidden>
+  <div class="search-overlay__inner">
+    <button
+      type="button"
+      class="search-overlay__close"
+      data-search-close
+      aria-label="{{ 'header.close' | t }}"
+    >
+      {% render 'icon-close' %}
+    </button>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-overlay__form">
+      <input
+        type="search"
+        name="q"
+        class="search-overlay__input"
+        placeholder="{{ 'header.search_placeholder' | t }}"
+        autocomplete="off"
+        data-search-input
+      >
+      <button type="submit" class="search-overlay__submit" aria-label="{{ 'header.search' | t }}">
+        {% render 'icon-search' %}
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="mobile-menu" id="MobileMenu" data-mobile-menu hidden>
+  <div class="mobile-menu__header">
+    <span class="mobile-menu__title">{{ 'header.menu' | t }}</span>
+    <button
+      type="button"
+      class="mobile-menu__close"
+      data-mobile-menu-close
+      aria-label="{{ 'header.close' | t }}"
+    >
+      {% render 'icon-close' %}
+    </button>
+  </div>
+
+  <nav class="mobile-menu__nav" aria-label="{{ 'header.main_nav' | t }}">
+    <ul role="list">
+      <li>
+        <button type="button" class="mobile-menu__link" data-mobile-submenu-trigger="shop">
+          {{ 'header.nav.shop' | t }}
+        </button>
+      </li>
+      <li>
+        <button type="button" class="mobile-menu__link" data-mobile-submenu-trigger="learn">
+          {{ 'header.nav.learn' | t }}
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="mobile-menu__footer">
+    <a href="{{ routes.account_url }}" class="mobile-menu__utility-link">
+      {% render 'icon-account' %}
+      <span>{{ 'header.account' | t }}</span>
+    </a>
+    <div class="mobile-menu__currency">
+      <span>{{ 'header.currency.current' | t }}</span>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "Optional. Falls back to the store name as text when no logo is set."
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 80,
+      "max": 260,
+      "step": 10,
+      "default": 160,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_transparent_header",
+      "label": "Transparent header over hero image",
+      "info": "When enabled, the header has no background while it overlaps the homepage hero section, and gains a solid background once the page scrolls past it.",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

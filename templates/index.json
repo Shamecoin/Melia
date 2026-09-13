@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-placeholder"
+    },
+    "spacer": {
+      "type": "content-placeholder"
+    }
+  },
+  "order": ["hero", "spacer"]
+}

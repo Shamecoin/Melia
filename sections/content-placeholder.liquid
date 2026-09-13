@@ -1,0 +1,39 @@
+{%- comment -%}
+  TEMPORARY filler so this step's homepage template has enough scrollable
+  content to demonstrate the header going solid past the hero. Removed once
+  real homepage sections are built.
+{%- endcomment -%}
+
+<section class="content-placeholder">
+  <div class="content-placeholder__inner">
+    <p>{{ 'sections.content_placeholder.body' | t }}</p>
+  </div>
+</section>
+
+{% style %}
+  .content-placeholder {
+    padding: 6rem 2rem;
+    min-height: 120vh;
+  }
+
+  .content-placeholder__inner {
+    max-width: 46rem;
+    margin-inline: auto;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-brown-mid);
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Content (placeholder)",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Content (placeholder)"
+    }
+  ]
+}
+{% endschema %}

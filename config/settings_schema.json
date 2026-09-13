@@ -1,0 +1,74 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Melia",
+    "theme_version": "0.1.0",
+    "theme_author": "Thermae Organics",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand palette"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Cream (base background)",
+        "default": "#F5F0E7"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Ink (primary text)",
+        "default": "#251A10"
+      },
+      {
+        "type": "color",
+        "id": "color_brown_mid",
+        "label": "Brown — mid (body copy accents)",
+        "default": "#5B3E29"
+      },
+      {
+        "type": "color",
+        "id": "color_brown_light",
+        "label": "Brown — light (rules, underlines, icons)",
+        "default": "#B08F68"
+      },
+      {
+        "type": "color",
+        "id": "color_green",
+        "label": "Green (sparing accent only, never a section background)",
+        "default": "#5F6E52"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Fonts"
+      },
+      {
+        "type": "paragraph",
+        "content": "Fraunces (display/serif) and Instrument Sans (body/UI) are loaded from Google Fonts in the theme layout."
+      },
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading font (fallback if Fraunces fails to load)",
+        "default": "playfair_display_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body font (fallback if Instrument Sans fails to load)",
+        "default": "assistant_n4"
+      }
+    ]
+  }
+]

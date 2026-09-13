@@ -1,0 +1,36 @@
+{
+  "accessibility": {
+    "skip_to_text": "Skip to content"
+  },
+  "header": {
+    "menu": "Menu",
+    "main_nav": "Main navigation",
+    "close": "Close",
+    "account": "Account",
+    "search": "Search",
+    "search_placeholder": "Search",
+    "cart": "Cart",
+    "tagline": "Premium Quality Greek Products",
+    "nav": {
+      "shop": "Shop",
+      "learn": "Learn"
+    },
+    "mega_menu": {
+      "shop_placeholder": "Shop menu placeholder — content added in a later step.",
+      "learn_placeholder": "Learn menu placeholder — content added in a later step."
+    },
+    "currency": {
+      "current": "UK / £ GBP",
+      "uk": "United Kingdom (£ GBP)"
+    }
+  },
+  "sections": {
+    "hero_placeholder": {
+      "eyebrow": "Thermae Organics",
+      "heading": "Raw Greek forest honey, gathered at altitude."
+    },
+    "content_placeholder": {
+      "body": "Placeholder content — scroll to see the header pick up its solid background once it clears the hero above."
+    }
+  }
+}
