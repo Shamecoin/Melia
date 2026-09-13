@@ -16,7 +16,12 @@
       "learn": "Learn"
     },
     "mega_menu": {
-      "learn_placeholder": "Learn menu placeholder — content added in a later step."
+      "learn": {
+        "about_nav": "About",
+        "honey_heading": "Our Honey: What is Melia?",
+        "statement_caption": "Statement of Purpose",
+        "melia_caption": "What is Melia?"
+      }
     },
     "currency": {
       "current": "UK / £ GBP",

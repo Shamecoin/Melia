@@ -51,6 +51,18 @@ img {
   max-width: 100%;
 }
 
+/* The header is fixed, so every template needs its content pushed down by
+   the header's height — except the homepage, whose hero sits flush behind
+   the (initially transparent) header. See layout/theme.liquid for the
+   `has-hero` body class. */
+.content-for-layout {
+  padding-top: var(--header-height);
+}
+
+body.has-hero .content-for-layout {
+  padding-top: 0;
+}
+
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -75,4 +87,36 @@ img {
 .skip-to-content-link:focus {
   position: fixed;
   top: 0.5rem;
+}
+
+/* ---- Plain page template (About Us, FAQ, etc.) ---- */
+
+.page-content {
+  padding: 4rem 2rem 6rem;
+}
+
+.page-content__inner {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.page-content__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-brown-light);
+}
+
+.page-content__body {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-brown-mid);
+}
+
+.page-content__body p {
+  margin: 0 0 1rem;
+}
+
+.page-content__body p:last-child {
+  margin-bottom: 0;
 }

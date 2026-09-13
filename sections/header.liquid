@@ -147,8 +147,80 @@
   </div>
 
   <div class="mega-menu" id="MegaMenu-learn" data-mega-menu="learn" hidden>
-    <div class="mega-menu__inner">
-      <p class="mega-menu__placeholder">{{ 'header.mega_menu.learn_placeholder' | t }}</p>
+    <div class="mega-menu__inner mega-menu__inner--learn">
+      <div class="learn-menu">
+
+        <nav class="learn-menu__column learn-menu__column--links" aria-label="{{ 'header.mega_menu.learn.about_nav' | t }}">
+          <ul class="learn-menu__list" role="list">
+            <li><a href="{{ pages['about-us'].url }}" class="learn-menu__link">{{ pages['about-us'].title | default: 'About Us' }}</a></li>
+            <li><a href="{{ pages['statement-of-purpose'].url }}" class="learn-menu__link">{{ pages['statement-of-purpose'].title | default: 'Statement of Purpose' }}</a></li>
+            <li><a href="{{ pages['meet-the-honey-makers'].url }}" class="learn-menu__link">{{ pages['meet-the-honey-makers'].title | default: 'Meet the Honey Makers' }}</a></li>
+            <li><a href="{{ pages['articles'].url }}" class="learn-menu__link">{{ pages['articles'].title | default: 'Articles' }}</a></li>
+            <li><a href="{{ pages['faq'].url }}" class="learn-menu__link">{{ pages['faq'].title | default: 'FAQ' }}</a></li>
+          </ul>
+        </nav>
+
+        <div class="learn-menu__column learn-menu__column--honey">
+          <div class="learn-menu__honey-heading">
+            <span class="learn-menu__honey-image-wrap">
+              {%- if section.settings.learn_column2_image != blank -%}
+                <img
+                  src="{{ section.settings.learn_column2_image | image_url: width: 160 }}"
+                  alt=""
+                  class="learn-menu__honey-image"
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <span class="learn-menu__image-placeholder learn-menu__image-placeholder--small" aria-hidden="true"></span>
+              {%- endif -%}
+            </span>
+            <span class="learn-menu__honey-title">{{ 'header.mega_menu.learn.honey_heading' | t }}</span>
+          </div>
+          <ul class="learn-menu__list" role="list">
+            <li><a href="{{ pages['gathering'].url }}" class="learn-menu__link">{{ pages['gathering'].title | default: 'Gathering' }}</a></li>
+            <li><a href="{{ pages['testing'].url }}" class="learn-menu__link">{{ pages['testing'].title | default: 'Testing' }}</a></li>
+            <li><a href="{{ pages['recipes'].url }}" class="learn-menu__link">{{ pages['recipes'].title | default: 'Recipes' }}</a></li>
+          </ul>
+        </div>
+
+        <a href="{{ pages['statement-of-purpose'].url }}" class="learn-menu__column learn-menu__tile">
+          {%- if section.settings.learn_column3_image != blank -%}
+            <img
+              src="{{ section.settings.learn_column3_image | image_url: width: 640 }}"
+              alt=""
+              class="learn-menu__tile-image"
+              loading="lazy"
+            >
+          {%- else -%}
+            <span class="learn-menu__image-placeholder" aria-hidden="true"></span>
+          {%- endif -%}
+          <span class="learn-menu__tile-scrim" aria-hidden="true"></span>
+          <span class="learn-menu__tile-caption">{{ 'header.mega_menu.learn.statement_caption' | t }}</span>
+        </a>
+
+        {%- comment -%}
+          "What is Melia?" isn't one of the pages this step creates (it wasn't
+          in the requested page list), so this tile points at About Us as the
+          closest existing match. Repoint once a dedicated page exists.
+        {%- endcomment -%}
+        <a href="{{ pages['about-us'].url }}" class="learn-menu__column learn-menu__tile">
+          {%- if section.settings.learn_column4_image != blank -%}
+            <img
+              src="{{ section.settings.learn_column4_image | image_url: width: 640 }}"
+              alt=""
+              class="learn-menu__tile-image"
+              loading="lazy"
+            >
+          {%- else -%}
+            <span class="learn-menu__image-placeholder" aria-hidden="true"></span>
+          {%- endif -%}
+          <span class="learn-menu__tile-scrim" aria-hidden="true"></span>
+          <span class="learn-menu__tile-caption">{{ 'header.mega_menu.learn.melia_caption' | t }}</span>
+        </a>
+
+      </div>
     </div>
   </div>
 </header>
@@ -246,6 +318,25 @@
       "label": "Transparent header over hero image",
       "info": "When enabled, the header has no background while it overlaps the homepage hero section, and gains a solid background once the page scrolls past it.",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Learn menu images"
+    },
+    {
+      "type": "image_picker",
+      "id": "learn_column2_image",
+      "label": "Column 2 image (\"Our Honey: What is Melia?\")"
+    },
+    {
+      "type": "image_picker",
+      "id": "learn_column3_image",
+      "label": "Column 3 image (\"Statement of Purpose\" tile)"
+    },
+    {
+      "type": "image_picker",
+      "id": "learn_column4_image",
+      "label": "Column 4 image (\"What is Melia?\" tile)"
     }
   ]
 }

@@ -39,7 +39,7 @@
     {{ 'header.css' | asset_url | stylesheet_tag }}
   </head>
 
-  <body>
+  <body class="template-{{ template.name }}{% if template.name == 'index' %} has-hero{% endif %}">
     <a class="visually-hidden skip-to-content-link" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
