@@ -78,9 +78,12 @@
       },
       "block_order": ["review-1", "review-2", "review-3"]
     },
+    "recipes-feature": {
+      "type": "recipes-feature"
+    },
     "spacer": {
       "type": "content-placeholder"
     }
   },
-  "order": ["hero", "honey-tabs", "crafted-by-nature", "reviews", "spacer"]
+  "order": ["hero", "honey-tabs", "crafted-by-nature", "reviews", "recipes-feature", "spacer"]
 }

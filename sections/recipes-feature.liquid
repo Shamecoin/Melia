@@ -1,0 +1,88 @@
+{%- comment -%}
+  Image + text feature block, modeled on Egmont Honey's "Rich, Decadent
+  Recipes" section: image on one side, heading/body/button on the other,
+  on the plain page background (not a full-bleed overlay like the
+  Crafted by Nature section).
+{%- endcomment -%}
+
+<section class="recipe-feature{% if section.settings.image_position == 'right' %} recipe-feature--image-right{% endif %}">
+  <div class="recipe-feature__inner">
+    <div class="recipe-feature__media">
+      {%- if section.settings.image != blank -%}
+        <img
+          src="{{ section.settings.image | image_url: width: 1200 }}"
+          alt=""
+          class="recipe-feature__image"
+          loading="lazy"
+        >
+      {%- else -%}
+        <div class="recipe-feature__placeholder" aria-hidden="true"></div>
+      {%- endif -%}
+    </div>
+
+    <div class="recipe-feature__content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="recipe-feature__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.body != blank -%}
+        <div class="recipe-feature__body">{{ section.settings.body }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+        <a href="{{ section.settings.button_link }}" class="recipe-feature__button">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Recipes feature",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Leave empty to show a placeholder until real photography is ready."
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recipes"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body text",
+      "default": "<p>From simple drizzles to slow-cooked marinades, discover ways to bring Melia honey to your table.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "See Recipes"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/pages/recipes"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recipes feature"
+    }
+  ]
+}
+{% endschema %}
