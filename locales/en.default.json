@@ -29,9 +29,11 @@
     }
   },
   "sections": {
-    "hero_placeholder": {
-      "eyebrow": "Thermae Organics",
-      "heading": "Raw Greek forest honey, gathered at altitude."
+    "hero": {
+      "previous_slide": "Previous slide",
+      "next_slide": "Next slide",
+      "slide_selector": "Slide navigation",
+      "go_to_slide": "Go to slide {{ index }}"
     },
     "content_placeholder": {
       "body": "Placeholder content — scroll to see the header pick up its solid background once it clears the hero above."
