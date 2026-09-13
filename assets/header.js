@@ -106,6 +106,7 @@
     if (!triggers.length) return;
 
     var hoverTimeout;
+    var pointerOverTriggerKey = null;
 
     function openMenu(key) {
       triggers.forEach(function (t) {
@@ -153,6 +154,16 @@
 
       trigger.addEventListener('click', function (event) {
         event.preventDefault();
+        // A mouse click on a trigger the pointer is already resting on is
+        // part of the same hover interaction that just opened this menu
+        // (mouseenter always fires first) — treat it as "keep open", not a
+        // toggle, or hovering then clicking would instantly close it again.
+        // Keyboard (Enter/Space) and touch taps never set pointerOverTriggerKey,
+        // so they still get the normal open/close toggle.
+        if (!isTouchDevice() && pointerOverTriggerKey === key) {
+          openMenu(key);
+          return;
+        }
         if (megaMenuOpenKey === key) {
           closeMenu(key);
         } else {
@@ -163,11 +174,13 @@
       if (item) {
         item.addEventListener('mouseenter', function () {
           if (isTouchDevice()) return;
+          pointerOverTriggerKey = key;
           window.clearTimeout(hoverTimeout);
           openMenu(key);
         });
         item.addEventListener('mouseleave', function () {
           if (isTouchDevice()) return;
+          if (pointerOverTriggerKey === key) pointerOverTriggerKey = null;
           hoverTimeout = window.setTimeout(function () {
             closeMenu(key);
           }, 150);

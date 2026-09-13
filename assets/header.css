@@ -248,6 +248,56 @@
   color: var(--color-brown-mid);
 }
 
+/* ---- Shop menu: single narrow column, anchored left under the trigger ---- */
+
+.mega-menu__inner--shop {
+  min-height: 0;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.shop-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 280px;
+}
+
+.shop-menu__heading {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-brown-light);
+}
+
+a.shop-menu__heading:hover {
+  color: var(--color-brown-mid);
+}
+
+.shop-menu__sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.shop-menu__link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-brown-mid);
+}
+
+a.shop-menu__link:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Backdrop shared by mega menu / mobile menu */
 
 .site-header__backdrop {
