@@ -27,8 +27,8 @@
     {%- if section.settings.body != blank -%}
       <div class="crafted__body">{{ section.settings.body }}</div>
     {%- endif -%}
-    {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-      <a href="{{ section.settings.button_link }}" class="crafted__button">{{ section.settings.button_label }}</a>
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link | default: '/pages/about-us' }}" class="crafted__button">{{ section.settings.button_label }}</a>
     {%- endif -%}
   </div>
 </section>
@@ -65,7 +65,7 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link",
-      "default": "/pages/about-us"
+      "info": "Defaults to the About Us page when left blank."
     }
   ],
   "presets": [
