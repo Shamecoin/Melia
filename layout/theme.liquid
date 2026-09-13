@@ -42,6 +42,8 @@
     {{ 'crafted-by-nature.css' | asset_url | stylesheet_tag }}
     {{ 'reviews.css' | asset_url | stylesheet_tag }}
     {{ 'recipes-feature.css' | asset_url | stylesheet_tag }}
+    {{ 'newsletter.css' | asset_url | stylesheet_tag }}
+    {{ 'footer.css' | asset_url | stylesheet_tag }}
   </head>
 
   <body class="template-{{ template.name }}{% if template.name == 'index' %} has-hero{% endif %}">
@@ -54,6 +56,8 @@
     <main id="MainContent" class="content-for-layout">
       {{ content_for_layout }}
     </main>
+
+    {% sections 'footer-group' %}
 
     {{ 'header.js' | asset_url | script_tag }}
     {{ 'hero-carousel.js' | asset_url | script_tag }}

@@ -1,0 +1,96 @@
+{%- comment -%}
+  Site-wide footer. Link columns reuse the same real collections/pages
+  wired up in earlier steps (Shop mega-menu, Learn mega-menu, Step 3
+  pages) rather than duplicating content.
+{%- endcomment -%}
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__columns">
+      <div class="site-footer__column">
+        <h3 class="site-footer__heading">{{ 'sections.footer.shop' | t }}</h3>
+        <ul class="site-footer__list" role="list">
+          <li><a href="{{ collections['varietal-honeys'].url }}">{{ collections['varietal-honeys'].title | default: 'Varietal Honeys' }}</a></li>
+          <li><a href="{{ collections['exclusive-limited-edition'].url }}">{{ collections['exclusive-limited-edition'].title | default: 'Exclusive & Limited Edition' }}</a></li>
+          <li><a href="{{ collections['exclusive-giftpacks'].url }}">{{ 'sections.footer.giftpack_bundles' | t }}</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__column">
+        <h3 class="site-footer__heading">{{ 'sections.footer.learn' | t }}</h3>
+        <ul class="site-footer__list" role="list">
+          <li><a href="{{ pages['about-us'].url }}">{{ pages['about-us'].title | default: 'About Us' }}</a></li>
+          <li><a href="{{ pages['statement-of-purpose'].url }}">{{ pages['statement-of-purpose'].title | default: 'Statement of Purpose' }}</a></li>
+          <li><a href="{{ pages['meet-the-honey-makers'].url }}">{{ pages['meet-the-honey-makers'].title | default: 'Meet the Honey Makers' }}</a></li>
+          <li><a href="{{ pages['articles'].url }}">{{ pages['articles'].title | default: 'Articles' }}</a></li>
+          <li><a href="{{ pages['faq'].url }}">{{ pages['faq'].title | default: 'FAQ' }}</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__column">
+        <h3 class="site-footer__heading">{{ 'sections.footer.info' | t }}</h3>
+        <ul class="site-footer__list" role="list">
+          <li><a href="{{ pages['shipping'].url }}">{{ pages['shipping'].title | default: 'Shipping' }}</a></li>
+          <li><a href="{{ pages['terms-of-service'].url }}">{{ pages['terms-of-service'].title | default: 'Terms of Service' }}</a></li>
+          <li><a href="{{ pages['refund-policy'].url }}">{{ pages['refund-policy'].title | default: 'Refund Policy' }}</a></li>
+          <li><a href="{{ pages['privacy-policy'].url }}">{{ pages['privacy-policy'].title | default: 'Privacy Policy' }}</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__column">
+        <h3 class="site-footer__heading">{{ 'sections.footer.contact' | t }}</h3>
+        <ul class="site-footer__list" role="list">
+          <li><a href="{{ pages['contact'].url }}">{{ 'sections.footer.contact_link' | t }}</a></li>
+          <li class="site-footer__static">{{ shop.address.country | default: 'United Kingdom' }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="site-footer__social">
+        {%- comment -%} No Instagram/Facebook accounts set up yet — links are blank until settings are filled in. {%- endcomment -%}
+        <a
+          href="{{ section.settings.instagram_url | default: '#' }}"
+          class="site-footer__social-link"
+          aria-label="Instagram"
+        >
+          {% render 'icon-instagram' %}
+        </a>
+        <a
+          href="{{ section.settings.facebook_url | default: '#' }}"
+          class="site-footer__social-link"
+          aria-label="Facebook"
+        >
+          {% render 'icon-facebook' %}
+        </a>
+      </div>
+      <p class="site-footer__copyright">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.footer.rights' | t }}
+      </p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Social links"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL",
+      "info": "Leave blank until the account is set up."
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL",
+      "info": "Leave blank until the account is set up."
+    }
+  ]
+}
+{% endschema %}

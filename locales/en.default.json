@@ -35,13 +35,26 @@
       "slide_selector": "Slide navigation",
       "go_to_slide": "Go to slide {{ index }}"
     },
-    "content_placeholder": {
-      "body": "Placeholder content — scroll to see the header pick up its solid background once it clears the hero above."
-    },
     "honey_tabs": {
       "varietal": "Varietal Honeys",
       "exclusive": "Exclusive & Limited Edition",
       "giftpacks": "Exclusive Giftpack Bundles"
+    },
+    "newsletter": {
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "submit": "Subscribe",
+      "success": "Thank you for subscribing.",
+      "error": "Please enter a valid email address."
+    },
+    "footer": {
+      "shop": "Shop",
+      "learn": "Learn",
+      "info": "Info",
+      "contact": "Contact",
+      "giftpack_bundles": "Exclusive Giftpack Bundles",
+      "contact_link": "Contact Us",
+      "rights": "All rights reserved."
     }
   },
   "products": {
