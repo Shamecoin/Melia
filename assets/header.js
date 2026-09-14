@@ -20,6 +20,7 @@
     setUpCurrencyPanel();
     setUpSearchOverlay();
     setUpMobileMenu();
+    setUpMobileSubmenus();
     setUpEscapeKey();
   }
 
@@ -321,6 +322,27 @@
     if (backdrop) backdrop.addEventListener('click', close);
 
     window._meliaCloseMobileMenu = close;
+  }
+
+  /* ---- Mobile menu's Shop / Learn submenus ----
+     Each trigger expands its own panel in place (accordion-style) so every
+     page reachable from the desktop mega menus is also reachable here. */
+
+  function setUpMobileSubmenus() {
+    var triggers = document.querySelectorAll('[data-mobile-submenu-trigger]');
+    if (!triggers.length) return;
+
+    triggers.forEach(function (trigger) {
+      var key = trigger.getAttribute('data-mobile-submenu-trigger');
+      var panel = document.querySelector('[data-mobile-submenu="' + key + '"]');
+      if (!panel) return;
+
+      trigger.addEventListener('click', function () {
+        var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        panel.hidden = isOpen;
+      });
+    });
   }
 
   /* ---- Escape key closes any open overlay ---- */
