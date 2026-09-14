@@ -153,8 +153,12 @@
         <div class="learn-menu__half learn-menu__half--links">
           <nav class="learn-menu__column learn-menu__column--links" aria-label="{{ 'header.mega_menu.learn.about_nav' | t }}">
             <ul class="learn-menu__list" role="list">
+              {%- comment -%}
+                About Us and Statement of Purpose are the same page — both
+                links point at pages['about-us'], per the merge in Step 11.
+              {%- endcomment -%}
               <li><a href="{{ pages['about-us'].url }}" class="learn-menu__link">{{ pages['about-us'].title | default: 'About Us' }}</a></li>
-              <li><a href="{{ pages['statement-of-purpose'].url }}" class="learn-menu__link">{{ pages['statement-of-purpose'].title | default: 'Statement of Purpose' }}</a></li>
+              <li><a href="{{ pages['about-us'].url }}" class="learn-menu__link">{{ 'header.mega_menu.learn.statement_caption' | t }}</a></li>
               <li><a href="{{ pages['meet-the-honey-makers'].url }}" class="learn-menu__link">{{ pages['meet-the-honey-makers'].title | default: 'Meet the Honey Makers' }}</a></li>
               <li><a href="{{ pages['articles'].url }}" class="learn-menu__link">{{ pages['articles'].title | default: 'Articles' }}</a></li>
               <li><a href="{{ pages['faq'].url }}" class="learn-menu__link">{{ pages['faq'].title | default: 'FAQ' }}</a></li>
@@ -188,7 +192,7 @@
         </div>
 
         <div class="learn-menu__half learn-menu__half--tiles">
-          <a href="{{ pages['statement-of-purpose'].url }}" class="learn-menu__column learn-menu__tile">
+          <a href="{{ pages['about-us'].url }}" class="learn-menu__column learn-menu__tile">
             {%- if section.settings.learn_column3_image != blank -%}
               <img
                 src="{{ section.settings.learn_column3_image | image_url: width: 640 }}"
@@ -204,9 +208,9 @@
           </a>
 
           {%- comment -%}
-            "What is Melia?" isn't one of the pages this step creates (it wasn't
-            in the requested page list), so this tile points at About Us as the
-            closest existing match. Repoint once a dedicated page exists.
+            "What is Melia?" has no dedicated page, so this tile also points at
+            About Us / Statement of Purpose (the same merged page as the tile
+            above) as the closest existing match.
           {%- endcomment -%}
           <a href="{{ pages['about-us'].url }}" class="learn-menu__column learn-menu__tile">
             {%- if section.settings.learn_column4_image != blank -%}

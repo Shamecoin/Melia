@@ -79,7 +79,14 @@
       "block_order": ["review-1", "review-2", "review-3"]
     },
     "recipes-feature": {
-      "type": "recipes-feature"
+      "type": "image-with-text",
+      "settings": {
+        "heading": "Recipes",
+        "body": "<p>From simple drizzles to slow-cooked marinades, discover ways to bring Melia honey to your table.</p>",
+        "button_label": "See Recipes",
+        "button_link": "/pages/recipes",
+        "image_position": "left"
+      }
     }
   },
   "order": ["hero", "honey-tabs", "crafted-by-nature", "reviews", "recipes-feature"]

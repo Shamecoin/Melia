@@ -19,8 +19,9 @@
       <div class="site-footer__column">
         <h3 class="site-footer__heading">{{ 'sections.footer.learn' | t }}</h3>
         <ul class="site-footer__list" role="list">
+          {%- comment -%} About Us and Statement of Purpose are the same page. {%- endcomment -%}
           <li><a href="{{ pages['about-us'].url }}">{{ pages['about-us'].title | default: 'About Us' }}</a></li>
-          <li><a href="{{ pages['statement-of-purpose'].url }}">{{ pages['statement-of-purpose'].title | default: 'Statement of Purpose' }}</a></li>
+          <li><a href="{{ pages['about-us'].url }}">{{ 'sections.footer.statement_of_purpose' | t }}</a></li>
           <li><a href="{{ pages['meet-the-honey-makers'].url }}">{{ pages['meet-the-honey-makers'].title | default: 'Meet the Honey Makers' }}</a></li>
           <li><a href="{{ pages['articles'].url }}">{{ pages['articles'].title | default: 'Articles' }}</a></li>
           <li><a href="{{ pages['faq'].url }}">{{ pages['faq'].title | default: 'FAQ' }}</a></li>
