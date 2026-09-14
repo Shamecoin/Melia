@@ -14,9 +14,10 @@
     {%- if section.blocks.size > 0 -%}
       <div class="faq__list">
         {%- for block in section.blocks -%}
+          {%- assign accordion_id = 'faq-' | append: block.id -%}
           <div {{ block.shopify_attributes }}>
             {%- render 'accordion-item',
-              id: 'faq-' | append: block.id,
+              id: accordion_id,
               question: block.settings.question,
               answer: block.settings.answer
             -%}
