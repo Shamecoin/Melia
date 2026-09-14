@@ -166,7 +166,7 @@
           </nav>
 
           <div class="learn-menu__column learn-menu__column--honey">
-            <div class="learn-menu__honey-heading">
+            <a href="{{ pages['what-is-melia'].url }}" class="learn-menu__honey-heading">
               <span class="learn-menu__honey-image-wrap">
                 {%- if section.settings.learn_column2_image != blank -%}
                   <img
@@ -182,7 +182,7 @@
                 {%- endif -%}
               </span>
               <span class="learn-menu__honey-title">{{ 'header.mega_menu.learn.honey_heading' | t }}</span>
-            </div>
+            </a>
             <ul class="learn-menu__list" role="list">
               <li><a href="{{ pages['gathering'].url }}" class="learn-menu__link">{{ pages['gathering'].title | default: 'Gathering' }}</a></li>
               <li><a href="{{ pages['testing'].url }}" class="learn-menu__link">{{ pages['testing'].title | default: 'Testing' }}</a></li>
@@ -207,12 +207,7 @@
             <span class="learn-menu__tile-caption">{{ 'header.mega_menu.learn.statement_caption' | t }}</span>
           </a>
 
-          {%- comment -%}
-            "What is Melia?" has no dedicated page, so this tile also points at
-            About Us / Statement of Purpose (the same merged page as the tile
-            above) as the closest existing match.
-          {%- endcomment -%}
-          <a href="{{ pages['about-us'].url }}" class="learn-menu__column learn-menu__tile">
+          <a href="{{ pages['what-is-melia'].url }}" class="learn-menu__column learn-menu__tile">
             {%- if section.settings.learn_column4_image != blank -%}
               <img
                 src="{{ section.settings.learn_column4_image | image_url: width: 640 }}"
