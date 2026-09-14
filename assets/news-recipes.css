@@ -1,0 +1,130 @@
+.news-recipes__inner {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 5.5rem 2rem;
+}
+
+.news-recipes__heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.news-recipes__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.news-recipes__filter {
+  padding: 0.7rem 1.75rem;
+  border: 1px solid var(--color-brown-light);
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brown-mid);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.news-recipes__filter:hover {
+  border-color: var(--color-brown-mid);
+  color: var(--color-ink);
+}
+
+.news-recipes__filter.is-active {
+  background: var(--color-brown-light);
+  border-color: var(--color-brown-light);
+  color: var(--color-ink);
+}
+
+.news-recipes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2rem;
+}
+
+.news-recipes__item[hidden] { display: none; }
+
+.news-recipes__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.news-recipes__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.news-recipes__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.news-recipes__card:hover .news-recipes__image {
+  transform: scale(1.03);
+}
+
+.news-recipes__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--color-brown-light);
+  background: rgba(176, 143, 104, 0.08);
+}
+
+.news-recipes__date {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brown-light);
+  margin: 0;
+}
+
+.news-recipes__title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.375rem;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.news-recipes__excerpt {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-brown-mid);
+  margin: 0;
+}
+
+.news-recipes__empty {
+  padding: 3.5rem 2rem;
+  border: 1px dashed var(--color-brown-light);
+  text-align: center;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-brown-mid);
+}
+
+@media (max-width: 1024px) {
+  .news-recipes__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .news-recipes__inner { padding: 4rem 1.5rem; }
+  .news-recipes__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}

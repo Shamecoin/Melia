@@ -47,6 +47,10 @@
     {{ 'founders.css' | asset_url | stylesheet_tag }}
     {{ 'makers-teaser.css' | asset_url | stylesheet_tag }}
     {{ 'maker-profiles.css' | asset_url | stylesheet_tag }}
+    {{ 'accordion.css' | asset_url | stylesheet_tag }}
+    {{ 'faq.css' | asset_url | stylesheet_tag }}
+    {{ 'news-recipes.css' | asset_url | stylesheet_tag }}
+    {{ 'article.css' | asset_url | stylesheet_tag }}
   </head>
 
   <body class="template-{{ template.name }}{% if template.name == 'index' %} has-hero{% endif %}">
@@ -65,5 +69,7 @@
     {{ 'header.js' | asset_url | script_tag }}
     {{ 'hero-carousel.js' | asset_url | script_tag }}
     {{ 'honey-tabs.js' | asset_url | script_tag }}
+    {{ 'accordion.js' | asset_url | script_tag }}
+    {{ 'news-recipes.js' | asset_url | script_tag }}
   </body>
 </html>

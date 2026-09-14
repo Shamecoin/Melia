@@ -1,0 +1,40 @@
+{%- comment -%}
+  Reusable expandable accordion row — question/header as the clickable
+  trigger, answer content revealed below. Used by the FAQ page (Step 13)
+  and the product page's "How to Use" / "Ingredients" sections (Step 16),
+  so the interaction is identical everywhere.
+
+  Accepts:
+  - id: unique string for this instance (required, used for aria-controls)
+  - question: plain string or HTML shown in the trigger
+  - answer: HTML content shown in the panel
+{%- endcomment -%}
+
+<div class="accordion-item" data-accordion-item>
+  <h3 class="accordion-item__heading">
+    <button
+      type="button"
+      class="accordion-item__trigger"
+      data-accordion-trigger
+      aria-expanded="false"
+      aria-controls="AccordionPanel-{{ id }}"
+      id="AccordionTrigger-{{ id }}"
+    >
+      <span class="accordion-item__question">{{ question }}</span>
+      <span class="accordion-item__icon" aria-hidden="true">
+        <span class="accordion-item__icon-line accordion-item__icon-line--v"></span>
+        <span class="accordion-item__icon-line accordion-item__icon-line--h"></span>
+      </span>
+    </button>
+  </h3>
+  <div
+    class="accordion-item__panel"
+    id="AccordionPanel-{{ id }}"
+    role="region"
+    aria-labelledby="AccordionTrigger-{{ id }}"
+    data-accordion-panel
+    hidden
+  >
+    <div class="accordion-item__answer rte">{{ answer }}</div>
+  </div>
+</div>

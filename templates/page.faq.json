@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Is Melia honey raw and unpasteurized?",
+            "answer": "<p>Yes. Every jar is raw and unpasteurized, so it keeps its natural enzymes, pollen, and aroma intact.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Where does the honey come from?",
+            "answer": "<p>Each varietal is gathered from specific wild forests across Greece, never blended from multiple unknown sources.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "How should I store my honey?",
+            "answer": "<p>Keep it in a cool, dry place out of direct sunlight. Raw honey may crystallize over time — that's natural and doesn't affect quality.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Is your honey tested for purity?",
+            "answer": "<p>Yes, every batch is independently lab-tested for pollen origin, moisture content, and adulteration before it ships.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Do you ship outside the UK?",
+            "answer": "<p>We currently ship within the UK. International shipping is something we're exploring for the future.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+    }
+  },
+  "order": ["faq"]
+}

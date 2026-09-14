@@ -1,0 +1,36 @@
+{%- comment -%}
+  Individual article/recipe post page, reached from the News and Recipes
+  grid. Kept visually consistent with the rest of the site rather than
+  using Shopify's unstyled article defaults.
+{%- endcomment -%}
+
+<article class="article">
+  <div class="article__media">
+    {%- if article.image != blank -%}
+      <img
+        src="{{ article.image | image_url: width: 1600 }}"
+        alt=""
+        class="article__image"
+        loading="eager"
+      >
+    {%- else -%}
+      <div class="article__placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="article__inner">
+    <a href="{{ blog.url }}" class="article__back">{{ 'sections.article.back' | t }}</a>
+    <p class="article__date">{{ article.published_at | date: '%B %d, %Y' }}</p>
+    <h1 class="article__title">{{ article.title }}</h1>
+    <div class="article__body rte">
+      {{ article.content }}
+    </div>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": []
+}
+{% endschema %}

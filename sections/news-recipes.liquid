@@ -1,0 +1,108 @@
+{%- comment -%}
+  "News and Recipes" — combines two real Shopify blogs (Articles, Recipes)
+  into one filterable grid. "All Posts" shows both; the other two pills
+  filter to a single blog via a data-category attribute, toggled with JS
+  rather than swapping panels, since "All" needs both sets visible at once.
+{%- endcomment -%}
+
+<section class="news-recipes" data-news-recipes>
+  <div class="news-recipes__inner">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="news-recipes__heading">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+
+    <div class="news-recipes__filters" role="tablist" aria-label="{{ section.settings.heading }}">
+      <button type="button" class="news-recipes__filter is-active" data-filter-trigger="all" role="tab" aria-selected="true">
+        {{ 'sections.news_recipes.all' | t }}
+      </button>
+      <button type="button" class="news-recipes__filter" data-filter-trigger="articles" role="tab" aria-selected="false">
+        {{ 'sections.news_recipes.articles' | t }}
+      </button>
+      <button type="button" class="news-recipes__filter" data-filter-trigger="recipes" role="tab" aria-selected="false">
+        {{ 'sections.news_recipes.recipes' | t }}
+      </button>
+    </div>
+
+    {%- assign articles_blog = section.settings.articles_blog -%}
+    {%- assign recipes_blog = section.settings.recipes_blog -%}
+
+    {%- if articles_blog.articles.size > 0 or recipes_blog.articles.size > 0 -%}
+      <ul class="news-recipes__grid" role="list">
+        {%- for article in articles_blog.articles -%}
+          <li class="news-recipes__item" data-category="articles">
+            <a href="{{ article.url }}" class="news-recipes__card">
+              <div class="news-recipes__media">
+                {%- if article.image != blank -%}
+                  <img
+                    src="{{ article.image | image_url: width: 800 }}"
+                    alt=""
+                    class="news-recipes__image"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <div class="news-recipes__placeholder" aria-hidden="true"></div>
+                {%- endif -%}
+              </div>
+              <p class="news-recipes__date">{{ article.published_at | date: '%B %d, %Y' }}</p>
+              <h2 class="news-recipes__title">{{ article.title }}</h2>
+              <p class="news-recipes__excerpt">{{ article.excerpt_or_content | strip_html | truncatewords: 22 }}</p>
+            </a>
+          </li>
+        {%- endfor -%}
+
+        {%- for article in recipes_blog.articles -%}
+          <li class="news-recipes__item" data-category="recipes">
+            <a href="{{ article.url }}" class="news-recipes__card">
+              <div class="news-recipes__media">
+                {%- if article.image != blank -%}
+                  <img
+                    src="{{ article.image | image_url: width: 800 }}"
+                    alt=""
+                    class="news-recipes__image"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <div class="news-recipes__placeholder" aria-hidden="true"></div>
+                {%- endif -%}
+              </div>
+              <p class="news-recipes__date">{{ article.published_at | date: '%B %d, %Y' }}</p>
+              <h2 class="news-recipes__title">{{ article.title }}</h2>
+              <p class="news-recipes__excerpt">{{ article.excerpt_or_content | strip_html | truncatewords: 22 }}</p>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- else -%}
+      <div class="news-recipes__empty">{{ 'sections.news_recipes.empty' | t }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "News and Recipes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "News and Recipes"
+    },
+    {
+      "type": "blog",
+      "id": "articles_blog",
+      "label": "Articles blog"
+    },
+    {
+      "type": "blog",
+      "id": "recipes_blog",
+      "label": "Recipes blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "News and Recipes"
+    }
+  ]
+}
+{% endschema %}

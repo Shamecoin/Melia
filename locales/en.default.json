@@ -20,7 +20,8 @@
         "about_nav": "About",
         "honey_heading": "Our Honey: What is Melia?",
         "statement_caption": "Statement of Purpose",
-        "melia_caption": "What is Melia?"
+        "melia_caption": "What is Melia?",
+        "articles_caption": "Articles"
       }
     },
     "currency": {
@@ -40,6 +41,15 @@
       "exclusive": "Exclusive & Limited Edition",
       "giftpacks": "Exclusive Giftpack Bundles"
     },
+    "news_recipes": {
+      "all": "All Posts",
+      "articles": "Articles",
+      "recipes": "Recipes",
+      "empty": "New posts are on their way."
+    },
+    "article": {
+      "back": "Back to News and Recipes"
+    },
     "newsletter": {
       "email_label": "Email address",
       "email_placeholder": "Email address",
@@ -54,6 +64,7 @@
       "contact": "Contact",
       "giftpack_bundles": "Exclusive Giftpack Bundles",
       "statement_of_purpose": "Statement of Purpose",
+      "articles_caption": "Articles",
       "contact_link": "Contact Us",
       "rights": "All rights reserved."
     }
