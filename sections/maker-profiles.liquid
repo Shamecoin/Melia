@@ -1,0 +1,96 @@
+{%- comment -%}
+  "Meet the Honey Makers" — the full team page, distinct from the About Us
+  teaser (Step 11). Each maker is a block (image, name, fuller bio), so
+  people can be added, removed, or reordered from the customizer as the
+  team changes. Rows alternate image side for editorial rhythm.
+{%- endcomment -%}
+
+<section class="maker-profiles">
+  <div class="maker-profiles__inner">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="maker-profiles__heading">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="maker-profiles__list" role="list">
+        {%- for block in section.blocks -%}
+          <li
+            class="maker-profile{% if forloop.index0 % 2 == 1 %} maker-profile--image-right{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="maker-profile__media">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1200 }}"
+                  alt=""
+                  class="maker-profile__image"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <div class="maker-profile__placeholder" aria-hidden="true"></div>
+              {%- endif -%}
+            </div>
+            <div class="maker-profile__content">
+              {%- if block.settings.name != blank -%}
+                <h2 class="maker-profile__name">{{ block.settings.name }}</h2>
+              {%- endif -%}
+              {%- if block.settings.bio != blank -%}
+                <div class="maker-profile__bio">{{ block.settings.bio }}</div>
+              {%- endif -%}
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Maker profiles",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Meet the Honey Makers"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "maker",
+      "name": "Maker",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo",
+          "info": "Leave empty to show a placeholder until real photography is ready."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Maker name"
+        },
+        {
+          "type": "richtext",
+          "id": "bio",
+          "label": "Bio",
+          "default": "<p>A fuller description of this maker's role, background, and connection to the honey goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maker profiles",
+      "blocks": [
+        { "type": "maker" },
+        { "type": "maker" },
+        { "type": "maker" }
+      ]
+    }
+  ]
+}
+{% endschema %}
