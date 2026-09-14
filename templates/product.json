@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product"
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "heading": "FAQ"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Is Melia honey raw and unpasteurized?",
+            "answer": "<p>Yes. Every jar is raw and unpasteurized, so it keeps its natural enzymes, pollen, and aroma intact.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How should I store my honey?",
+            "answer": "<p>Keep it in a cool, dry place out of direct sunlight. Raw honey may crystallize over time — that's natural and doesn't affect quality.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Is your honey tested for purity?",
+            "answer": "<p>Yes, every batch is independently lab-tested for pollen origin, moisture content, and adulteration before it ships.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3"]
+    },
+    "recipes": {
+      "type": "product-recipes",
+      "settings": {
+        "recipes_blog": "recipes-blog"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "name": "Reviewer name",
+            "rating": 5,
+            "quote": "Add the reviewer's quote here."
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "name": "Reviewer name",
+            "rating": 5,
+            "quote": "Add the reviewer's quote here."
+          }
+        }
+      },
+      "block_order": ["r1", "r2"]
+    }
+  },
+  "order": ["main", "faq", "recipes", "reviews"]
+}

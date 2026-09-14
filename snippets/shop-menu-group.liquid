@@ -1,0 +1,39 @@
+{%- comment -%}
+  Renders one Shop mega-menu group: a collection heading link, plus optional
+  product sub-links.
+
+  Accepts:
+  - collection_handle (required): handle of the collection to link/heading from
+  - product_handles (optional): comma-separated product handles, in display order
+  - heading_url (optional): overrides the heading link target. Used for
+    collections that don't have their own grid page yet (Step 15) — the
+    heading points straight at the single product instead.
+{%- endcomment -%}
+
+{%- assign group_collection = collections[collection_handle] -%}
+
+<li class="shop-menu__group">
+  {%- if heading_url != blank -%}
+    <a href="{{ heading_url }}" class="shop-menu__heading">{{ group_collection.title | default: collection_handle }}</a>
+  {%- elsif group_collection != blank -%}
+    <a href="{{ group_collection.url }}" class="shop-menu__heading">{{ group_collection.title }}</a>
+  {%- else -%}
+    <span class="shop-menu__heading">{{ collection_handle }}</span>
+  {%- endif -%}
+
+  {%- if product_handles != blank -%}
+    <ul class="shop-menu__sublist" role="list">
+      {%- assign product_handle_list = product_handles | split: ',' -%}
+      {%- for handle in product_handle_list -%}
+        {%- assign linked_product = all_products[handle] -%}
+        <li>
+          {%- if linked_product != blank -%}
+            <a href="{{ linked_product.url }}" class="shop-menu__link">{{ linked_product.title }}</a>
+          {%- else -%}
+            <span class="shop-menu__link">{{ handle }}</span>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</li>

@@ -1,0 +1,18 @@
+.faq__inner {
+  max-width: 860px;
+  margin-inline: auto;
+  padding: 5.5rem 2rem;
+}
+
+.faq__heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 560px) {
+  .faq__inner { padding: 4rem 1.5rem; }
+  .faq__heading { margin-bottom: 2.5rem; }
+}

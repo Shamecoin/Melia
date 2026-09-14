@@ -1,0 +1,35 @@
+.main-collection__inner {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 5.5rem 2rem;
+}
+
+.main-collection__heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.main-collection__description {
+  max-width: 42rem;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-brown-mid);
+}
+
+.main-collection__description:last-child {
+  margin-bottom: 0;
+}
+
+.main-collection__inner .product-grid {
+  margin-top: 3.5rem;
+}
+
+@media (max-width: 560px) {
+  .main-collection__inner { padding: 4rem 1.5rem; }
+}

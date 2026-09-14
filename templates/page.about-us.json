@@ -1,0 +1,76 @@
+{
+  "sections": {
+    "header-image": {
+      "type": "crafted-by-nature",
+      "settings": {
+        "heading": "Muse of Honey, nature inspires us to be humble"
+      }
+    },
+    "statement": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "Statement of Purpose",
+        "body": "<p>We started Thermae Organics because raw, single-origin honey deserves better than a supermarket shelf. Every jar traces back to a specific forest, a specific season, and the people who tend the hives — nothing blended, nothing anonymous.</p>",
+        "image_position": "right"
+      }
+    },
+    "image-band": {
+      "type": "crafted-by-nature",
+      "settings": {
+        "heading": "Nothing to hide, nothing but nature"
+      }
+    },
+    "founders": {
+      "type": "founders",
+      "blocks": {
+        "founder-1": {
+          "type": "founder",
+          "settings": {
+            "caption": "Founder name"
+          }
+        },
+        "founder-2": {
+          "type": "founder",
+          "settings": {
+            "caption": "Founder name"
+          }
+        },
+        "founder-3": {
+          "type": "founder",
+          "settings": {
+            "caption": "Founder name"
+          }
+        }
+      },
+      "block_order": ["founder-1", "founder-2", "founder-3"]
+    },
+    "makers-teaser": {
+      "type": "makers-teaser",
+      "blocks": {
+        "maker-1": {
+          "type": "maker",
+          "settings": {
+            "name": "Maker name",
+            "description": "A short description goes here."
+          }
+        },
+        "maker-2": {
+          "type": "maker",
+          "settings": {
+            "name": "Maker name",
+            "description": "A short description goes here."
+          }
+        },
+        "maker-3": {
+          "type": "maker",
+          "settings": {
+            "name": "Maker name",
+            "description": "A short description goes here."
+          }
+        }
+      },
+      "block_order": ["maker-1", "maker-2", "maker-3"]
+    }
+  },
+  "order": ["header-image", "statement", "image-band", "founders", "makers-teaser"]
+}

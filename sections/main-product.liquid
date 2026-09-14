@@ -1,0 +1,84 @@
+{%- comment -%}
+  Product page essentials — image, title, description, price, add-to-cart —
+  plus "How to Use" and "Ingredients" as expandable accordions using the
+  same snippets/accordion-item.liquid pattern built for the FAQ page
+  (Step 13), so the interaction is identical everywhere.
+
+  "How to Use" and "Ingredients" content is pulled from product metafields
+  (custom.how_to_use, custom.ingredients) rather than section settings, so
+  this one template applies unchanged to every product — each product just
+  carries its own metafield content.
+{%- endcomment -%}
+
+<section class="product">
+  <div class="product__inner">
+    <div class="product__media">
+      {%- if product.featured_image -%}
+        <img
+          src="{{ product.featured_image | image_url: width: 1200 }}"
+          alt="{{ product.featured_image.alt | default: product.title }}"
+          class="product__image"
+          loading="eager"
+        >
+      {%- else -%}
+        <div class="product__placeholder" aria-hidden="true"></div>
+      {%- endif -%}
+    </div>
+
+    <div class="product__info">
+      <h1 class="product__title">{{ product.title }}</h1>
+      <p class="product__price">{{ product.price | money }}</p>
+
+      {%- if product.description != blank -%}
+        <div class="product__description rte">{{ product.description }}</div>
+      {%- endif -%}
+
+      {%- form 'product', product, class: 'product__form' -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <div class="product__form-row">
+          <label for="ProductQuantity" class="visually-hidden">{{ 'products.quantity' | t }}</label>
+          <input type="number" id="ProductQuantity" name="quantity" value="1" min="1" class="product__quantity">
+          <button
+            type="submit"
+            class="product__submit"
+            {% if product.available == false %}disabled{% endif %}
+          >
+            {%- if product.available -%}
+              {{ 'products.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.sold_out' | t }}
+            {%- endif -%}
+          </button>
+        </div>
+      {%- endform -%}
+
+      {%- if product.metafields.custom.how_to_use != blank or product.metafields.custom.ingredients != blank -%}
+        <div class="product__accordions">
+          {%- if product.metafields.custom.how_to_use != blank -%}
+            {%- assign how_to_use_label = 'products.how_to_use' | t -%}
+            {%- render 'accordion-item',
+              id: 'product-how-to-use',
+              question: how_to_use_label,
+              answer: product.metafields.custom.how_to_use.value
+            -%}
+          {%- endif -%}
+          {%- if product.metafields.custom.ingredients != blank -%}
+            {%- assign ingredients_label = 'products.ingredients' | t -%}
+            {%- render 'accordion-item',
+              id: 'product-ingredients',
+              question: ingredients_label,
+              answer: product.metafields.custom.ingredients.value
+            -%}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": []
+}
+{% endschema %}

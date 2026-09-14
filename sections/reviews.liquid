@@ -1,0 +1,93 @@
+{%- comment -%}
+  Manual/editable reviews placeholder. Reviewer name, star rating, and quote
+  are entered by hand as blocks from the theme customizer — there's no
+  reviews app connected yet.
+
+  To swap in a real reviews app later (e.g. Judge.me, Loox): replace the
+  `for block in section.blocks` loop below with that app's Liquid
+  snippet/embed (and the aggregate_rating text with its rating-summary tag).
+  The surrounding markup, classes, and assets/reviews.css are unaffected, so
+  the visual design carries over unchanged.
+{%- endcomment -%}
+
+<section class="reviews">
+  <div class="reviews__inner">
+    <h2 class="reviews__heading">{{ section.settings.heading }}</h2>
+
+    {%- if section.settings.aggregate_rating != blank -%}
+      <p class="reviews__aggregate">{{ section.settings.aggregate_rating }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="reviews__row" role="list">
+        {%- for block in section.blocks -%}
+          <li class="review-card" {{ block.shopify_attributes }}>
+            {%- render 'star-rating', rating: block.settings.rating -%}
+            <p class="review-card__quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+            <p class="review-card__name">{{ block.settings.name }}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What people are saying"
+    },
+    {
+      "type": "text",
+      "id": "aggregate_rating",
+      "label": "Aggregate rating text",
+      "default": "4.9 ★ (120 reviews)",
+      "info": "Manual placeholder until a reviews app (e.g. Judge.me, Loox) is connected."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Reviewer name",
+          "default": "Reviewer name"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Add the reviewer's quote here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

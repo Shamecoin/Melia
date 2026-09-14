@@ -1,0 +1,89 @@
+{%- comment -%}
+  "Our Founders" — heading, body copy, and a row of founder portraits as
+  blocks, so founders can be added, removed, or reordered from the
+  customizer without touching code.
+{%- endcomment -%}
+
+<section class="founders">
+  <div class="founders__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="founders__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.body != blank -%}
+      <div class="founders__body">{{ section.settings.body }}</div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="founders__row" role="list">
+        {%- for block in section.blocks -%}
+          <li class="founders__item" {{ block.shopify_attributes }}>
+            <div class="founders__media">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 800 }}"
+                  alt=""
+                  class="founders__image"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <div class="founders__placeholder" aria-hidden="true"></div>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.caption != blank -%}
+              <p class="founders__caption">{{ block.settings.caption }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Founders",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Founders"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "founder",
+      "name": "Founder",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo",
+          "info": "Leave empty to show a placeholder until real photography is ready."
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "Founder name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Founders",
+      "blocks": [
+        { "type": "founder" },
+        { "type": "founder" },
+        { "type": "founder" }
+      ]
+    }
+  ]
+}
+{% endschema %}

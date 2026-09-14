@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "news-recipes": {
+      "type": "news-recipes",
+      "settings": {
+        "articles_blog": "articles",
+        "recipes_blog": "recipes-blog"
+      }
+    }
+  },
+  "order": ["news-recipes"]
+}

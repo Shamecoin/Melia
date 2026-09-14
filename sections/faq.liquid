@@ -1,0 +1,105 @@
+{%- comment -%}
+  FAQ page — heading + a blocks-based list of accordion questions, so
+  questions can be added, edited, or reordered from the customizer.
+  Uses the shared snippets/accordion-item.liquid interaction, also reused
+  on product pages in Step 16.
+{%- endcomment -%}
+
+<section class="faq">
+  <div class="faq__inner">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="faq__heading">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="faq__list">
+        {%- for block in section.blocks -%}
+          {%- assign accordion_id = 'faq-' | append: block.id -%}
+          <div {{ block.shopify_attributes }}>
+            {%- render 'accordion-item',
+              id: accordion_id,
+              question: block.settings.question,
+              answer: block.settings.answer
+            -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FAQ"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question goes here?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is Melia honey raw and unpasteurized?",
+            "answer": "<p>Yes. Every jar is raw and unpasteurized, so it keeps its natural enzymes, pollen, and aroma intact.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Where does the honey come from?",
+            "answer": "<p>Each varietal is gathered from specific wild forests across Greece, never blended from multiple unknown sources.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How should I store my honey?",
+            "answer": "<p>Keep it in a cool, dry place out of direct sunlight. Raw honey may crystallize over time — that's natural and doesn't affect quality.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is your honey tested for purity?",
+            "answer": "<p>Yes, every batch is independently lab-tested for pollen origin, moisture content, and adulteration before it ships.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Do you ship outside the UK?",
+            "answer": "<p>We currently ship within the UK. International shipping is something we're exploring for the future.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "maker-profiles": {
+      "type": "maker-profiles",
+      "blocks": {
+        "maker-1": {
+          "type": "maker",
+          "settings": {
+            "name": "Maker name",
+            "bio": "<p>A fuller description of this maker's role, background, and connection to the honey goes here.</p>"
+          }
+        },
+        "maker-2": {
+          "type": "maker",
+          "settings": {
+            "name": "Maker name",
+            "bio": "<p>A fuller description of this maker's role, background, and connection to the honey goes here.</p>"
+          }
+        },
+        "maker-3": {
+          "type": "maker",
+          "settings": {
+            "name": "Maker name",
+            "bio": "<p>A fuller description of this maker's role, background, and connection to the honey goes here.</p>"
+          }
+        }
+      },
+      "block_order": ["maker-1", "maker-2", "maker-3"]
+    }
+  },
+  "order": ["maker-profiles"]
+}

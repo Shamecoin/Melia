@@ -1,0 +1,14 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_cream": "#F5F0E7",
+      "color_ink": "#251A10",
+      "color_brown_mid": "#5B3E29",
+      "color_brown_light": "#B08F68",
+      "color_green": "#5F6E52",
+      "font_heading": "playfair_display_n4",
+      "font_body": "assistant_n4"
+    }
+  }
+}

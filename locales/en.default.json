@@ -1,0 +1,90 @@
+{
+  "accessibility": {
+    "skip_to_text": "Skip to content"
+  },
+  "header": {
+    "menu": "Menu",
+    "main_nav": "Main navigation",
+    "close": "Close",
+    "account": "Account",
+    "search": "Search",
+    "search_placeholder": "Search",
+    "cart": "Cart",
+    "tagline": "Premium Quality Greek Products",
+    "nav": {
+      "shop": "Shop",
+      "learn": "Learn"
+    },
+    "mega_menu": {
+      "learn": {
+        "about_nav": "About",
+        "honey_heading": "Our Honey: What is Melia?",
+        "statement_caption": "Statement of Purpose",
+        "melia_caption": "What is Melia?",
+        "articles_caption": "Articles"
+      }
+    },
+    "currency": {
+      "current": "UK / £ GBP",
+      "uk": "United Kingdom (£ GBP)"
+    }
+  },
+  "sections": {
+    "hero": {
+      "previous_slide": "Previous slide",
+      "next_slide": "Next slide",
+      "slide_selector": "Slide navigation",
+      "go_to_slide": "Go to slide {{ index }}"
+    },
+    "honey_tabs": {
+      "varietal": "Varietal Honeys",
+      "exclusive": "Exclusive & Limited Edition",
+      "giftpacks": "Exclusive Giftpack Bundles"
+    },
+    "news_recipes": {
+      "all": "All Posts",
+      "articles": "Articles",
+      "recipes": "Recipes",
+      "empty": "New posts are on their way."
+    },
+    "article": {
+      "back": "Back to News and Recipes"
+    },
+    "newsletter": {
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "submit": "Subscribe",
+      "success": "Thank you for subscribing.",
+      "error": "Please enter a valid email address."
+    },
+    "footer": {
+      "shop": "Shop",
+      "learn": "Learn",
+      "info": "Info",
+      "contact": "Contact",
+      "giftpack_bundles": "Exclusive Giftpack Bundles",
+      "statement_of_purpose": "Statement of Purpose",
+      "articles_caption": "Articles",
+      "contact_link": "Contact Us",
+      "rights": "All rights reserved."
+    }
+  },
+  "products": {
+    "view_more": "View More",
+    "coming_soon": "Coming soon.",
+    "quantity": "Quantity",
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "how_to_use": "How to Use",
+    "ingredients": "Ingredients"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty.",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity"
+  }
+}

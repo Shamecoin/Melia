@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "banner": {
+      "type": "crafted-by-nature",
+      "settings": {
+        "heading": "What is Melia?",
+        "body": "",
+        "button_label": ""
+      }
+    },
+    "info": {
+      "type": "info-blocks",
+      "blocks": {
+        "b1": {
+          "type": "block",
+          "settings": {
+            "heading": "How is it made?",
+            "body": "<p>Melia honey is gathered by beekeepers working wild forest and mountain sites across Greece, then extracted and lightly filtered — never heated or blended — so it keeps the character of its specific origin.</p>"
+          }
+        },
+        "b2": {
+          "type": "block",
+          "settings": {
+            "heading": "Which one should I buy?",
+            "body": "<p>Chestnut Honey has a deep, slightly bitter edge that suits savory pairings. Forest Honey is rounder and more floral, good for everyday use. Heather and Ivy Honey is bolder and more mineral, best for stronger flavors. If you're unsure, Forest Honey is the most versatile starting point.</p>"
+          }
+        },
+        "b3": {
+          "type": "block",
+          "settings": {
+            "heading": "Analysis: what's actually inside",
+            "body": "<p>Every batch is independently lab-tested for pollen origin, moisture content, and adulteration before it ships — the same testing described on our News and Recipes page. No additives, no blending with cheaper syrups.</p>"
+          }
+        },
+        "b4": {
+          "type": "block",
+          "settings": {
+            "heading": "Best way to use it",
+            "body": "<p>Raw honey is best enjoyed where its flavor can stand out — stirred into yogurt, drizzled over roasted vegetables, or spooned straight from the jar. Avoid high heat, which dulls both flavor and the honey's natural enzymes.</p>"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "honey-tabs": {
+      "type": "honey-tabs"
+    }
+  },
+  "order": ["banner", "info", "honey-tabs"]
+}

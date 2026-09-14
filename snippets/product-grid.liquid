@@ -1,0 +1,37 @@
+{%- comment -%}
+  Responsive product grid for one collection, with a "coming soon" empty
+  state instead of breaking when the collection has no visible products.
+
+  Accepts:
+  - collection (required): a collection object
+{%- endcomment -%}
+
+{%- if collection != blank and collection.products.size > 0 -%}
+  <ul class="product-grid" role="list">
+    {%- for product in collection.products -%}
+      <li class="product-grid__item">
+        <a href="{{ product.url }}" class="product-card">
+          <div class="product-card__media">
+            {%- if product.featured_image -%}
+              <img
+                src="{{ product.featured_image | image_url: width: 600 }}"
+                alt="{{ product.featured_image.alt | default: product.title }}"
+                class="product-card__image"
+                loading="lazy"
+              >
+            {%- else -%}
+              <span class="product-card__placeholder" aria-hidden="true"></span>
+            {%- endif -%}
+          </div>
+          <h3 class="product-card__title">{{ product.title }}</h3>
+          <p class="product-card__price">{{ product.price | money }}</p>
+          <span class="product-card__link">{{ 'products.view_more' | t }}</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- else -%}
+  <div class="product-grid__empty">
+    <p>{{ 'products.coming_soon' | t }}</p>
+  </div>
+{%- endif -%}

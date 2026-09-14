@@ -1,0 +1,77 @@
+{%- comment -%}
+  "Honey" tabbed product section — three tabs, each backed by a real
+  collection, swapping a responsive product grid below. The Giftpack
+  Bundles tab reuses the "Exclusive Giftpacks" collection created in an
+  earlier step (its products are still drafts, so it renders the empty
+  state for anonymous visitors until they're published).
+{%- endcomment -%}
+
+<section class="honey-tabs" data-honey-tabs>
+  <div class="honey-tabs__inner">
+    <h2 class="honey-tabs__heading">{{ section.settings.heading }}</h2>
+
+    <div class="honey-tabs__tablist" role="tablist" aria-label="{{ section.settings.heading }}">
+      <button
+        type="button"
+        class="honey-tabs__tab is-active"
+        data-tab-trigger="varietal"
+        role="tab"
+        aria-selected="true"
+        aria-controls="HoneyTabPanel-varietal"
+      >
+        {{ 'sections.honey_tabs.varietal' | t }}
+      </button>
+      <button
+        type="button"
+        class="honey-tabs__tab"
+        data-tab-trigger="exclusive"
+        role="tab"
+        aria-selected="false"
+        aria-controls="HoneyTabPanel-exclusive"
+      >
+        {{ 'sections.honey_tabs.exclusive' | t }}
+      </button>
+      <button
+        type="button"
+        class="honey-tabs__tab"
+        data-tab-trigger="giftpacks"
+        role="tab"
+        aria-selected="false"
+        aria-controls="HoneyTabPanel-giftpacks"
+      >
+        {{ 'sections.honey_tabs.giftpacks' | t }}
+      </button>
+    </div>
+
+    <div class="honey-tabs__panels">
+      <div class="honey-tabs__panel is-active" id="HoneyTabPanel-varietal" data-tab-panel="varietal" role="tabpanel">
+        {% render 'product-grid', collection: collections['varietal-honeys'] %}
+      </div>
+      <div class="honey-tabs__panel" id="HoneyTabPanel-exclusive" data-tab-panel="exclusive" role="tabpanel" hidden>
+        {% render 'product-grid', collection: collections['exclusive-limited-edition'] %}
+      </div>
+      <div class="honey-tabs__panel" id="HoneyTabPanel-giftpacks" data-tab-panel="giftpacks" role="tabpanel" hidden>
+        {% render 'product-grid', collection: collections['exclusive-giftpacks'] %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Honey tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Honey"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Honey tabs"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,66 @@
+{%- comment -%}
+  A few recipe cards relevant to this product, pulled from the Recipes blog
+  set up in Step 13. Filters that blog's articles by tag, matching the
+  current product's handle — e.g. an article tagged "chestnut-honey" shows
+  up on the Chestnut Honey product page.
+{%- endcomment -%}
+
+{%- assign recipes_blog = section.settings.recipes_blog -%}
+{%- assign matching_articles = '' | split: '' -%}
+{%- if recipes_blog != blank -%}
+  {%- for article in recipes_blog.articles -%}
+    {%- if article.tags contains product.handle -%}
+      {%- assign matching_articles = matching_articles | concat: article -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if matching_articles.size > 0 -%}
+  <section class="product-recipes">
+    <div class="product-recipes__inner">
+      <h2 class="product-recipes__heading">{{ section.settings.heading }}</h2>
+
+      <ul class="news-recipes__grid" role="list">
+        {%- for article in matching_articles -%}
+          <li class="news-recipes__item">
+            <a href="{{ article.url }}" class="news-recipes__card">
+              <div class="news-recipes__media">
+                {%- if article.image != blank -%}
+                  <img
+                    src="{{ article.image | image_url: width: 800 }}"
+                    alt=""
+                    class="news-recipes__image"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <div class="news-recipes__placeholder" aria-hidden="true"></div>
+                {%- endif -%}
+              </div>
+              <h3 class="news-recipes__title">{{ article.title }}</h3>
+              <p class="news-recipes__excerpt">{{ article.excerpt_or_content | strip_html | truncatewords: 22 }}</p>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product recipes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recipes with this Honey"
+    },
+    {
+      "type": "blog",
+      "id": "recipes_blog",
+      "label": "Recipes blog"
+    }
+  ]
+}
+{% endschema %}

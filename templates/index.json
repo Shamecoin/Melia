@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "chestnut-honey": {
+          "type": "slide",
+          "settings": {
+            "heading": "Chestnut Honey",
+            "subtext": "<p>Deep, dark, and resinous — chestnut blossom honey from the Greek highlands.</p>",
+            "button_label": "Shop Now",
+            "button_link": "/products/chestnut-honey"
+          }
+        },
+        "forest-honey": {
+          "type": "slide",
+          "settings": {
+            "heading": "Forest Honey",
+            "subtext": "<p>Raw forest honey, hand-harvested from Greek forest highlands.</p>",
+            "button_label": "Shop Now",
+            "button_link": "/products/forest-honey"
+          }
+        },
+        "heather-and-ivy-honey": {
+          "type": "slide",
+          "settings": {
+            "heading": "Heather and Ivy Honey",
+            "subtext": "<p>A rare, limited-batch varietal honey from heather and ivy blossom.</p>",
+            "button_label": "Shop Now",
+            "button_link": "/products/heather-and-ivy-honey"
+          }
+        },
+        "gift-bundle": {
+          "type": "slide",
+          "settings": {
+            "heading": "Gift Bundle",
+            "subtext": "<p>A curated set of Melia honeys, presented together as a gift.</p>",
+            "button_label": "Shop Now",
+            "button_link": "/products/gift-bundle"
+          }
+        }
+      },
+      "block_order": ["chestnut-honey", "forest-honey", "heather-and-ivy-honey", "gift-bundle"]
+    },
+    "honey-tabs": {
+      "type": "honey-tabs"
+    },
+    "crafted-by-nature": {
+      "type": "crafted-by-nature"
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "name": "Eleni P.",
+            "rating": 5,
+            "quote": "The chestnut honey is unlike anything I've had — deep, almost smoky. You can tell it's the real thing."
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "name": "James R.",
+            "rating": 5,
+            "quote": "Ordered the gift bundle for my parents and they haven't stopped talking about it. Beautifully packaged too."
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "name": "Sofia M.",
+            "rating": 4,
+            "quote": "Forest honey has become a breakfast staple in our house. Rich, not overly sweet, and clearly high quality."
+          }
+        }
+      },
+      "block_order": ["review-1", "review-2", "review-3"]
+    },
+    "recipes-feature": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "Recipes",
+        "body": "<p>From simple drizzles to slow-cooked marinades, discover ways to bring Melia honey to your table.</p>",
+        "button_label": "See Recipes",
+        "button_link": "/pages/recipes",
+        "image_position": "left"
+      }
+    }
+  },
+  "order": ["hero", "honey-tabs", "crafted-by-nature", "reviews", "recipes-feature"]
+}

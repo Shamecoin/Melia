@@ -1,0 +1,126 @@
+.makers-teaser {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.makers-teaser__inner {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 5.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: stretch;
+}
+
+.makers-teaser__media {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.makers-teaser__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.makers-teaser__placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-brown-mid), var(--color-ink));
+}
+
+.makers-teaser__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(37, 26, 16, 0.25), rgba(37, 26, 16, 0.5));
+}
+
+.makers-teaser__heading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  color: var(--color-cream);
+}
+
+.makers-teaser:hover .makers-teaser__heading {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.makers-teaser__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.makers-teaser__profile {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-brown-light);
+}
+
+.makers-teaser__profile:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.makers-teaser__profile-media {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  overflow: hidden;
+}
+
+.makers-teaser__profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.makers-teaser__profile-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--color-brown-light);
+  background: rgba(176, 143, 104, 0.08);
+}
+
+.makers-teaser__profile-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-ink);
+  margin-bottom: 0.35rem;
+}
+
+.makers-teaser__profile-description {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-brown-mid);
+}
+
+@media (max-width: 900px) {
+  .makers-teaser__inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 4rem 1.5rem;
+  }
+
+  .makers-teaser__media {
+    min-height: 280px;
+  }
+}
