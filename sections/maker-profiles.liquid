@@ -14,8 +14,9 @@
     {%- if section.blocks.size > 0 -%}
       <ul class="maker-profiles__list" role="list">
         {%- for block in section.blocks -%}
+          {%- assign is_odd = forloop.index0 | modulo: 2 -%}
           <li
-            class="maker-profile{% if forloop.index0 % 2 == 1 %} maker-profile--image-right{% endif %}"
+            class="maker-profile{% if is_odd == 1 %} maker-profile--image-right{% endif %}"
             {{ block.shopify_attributes }}
           >
             <div class="maker-profile__media">
