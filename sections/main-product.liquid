@@ -55,16 +55,18 @@
       {%- if product.metafields.custom.how_to_use != blank or product.metafields.custom.ingredients != blank -%}
         <div class="product__accordions">
           {%- if product.metafields.custom.how_to_use != blank -%}
+            {%- assign how_to_use_label = 'products.how_to_use' | t -%}
             {%- render 'accordion-item',
               id: 'product-how-to-use',
-              question: 'products.how_to_use' | t,
+              question: how_to_use_label,
               answer: product.metafields.custom.how_to_use.value
             -%}
           {%- endif -%}
           {%- if product.metafields.custom.ingredients != blank -%}
+            {%- assign ingredients_label = 'products.ingredients' | t -%}
             {%- render 'accordion-item',
               id: 'product-ingredients',
-              question: 'products.ingredients' | t,
+              question: ingredients_label,
               answer: product.metafields.custom.ingredients.value
             -%}
           {%- endif -%}
