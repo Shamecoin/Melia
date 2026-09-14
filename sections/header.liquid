@@ -138,9 +138,14 @@
     <div class="mega-menu__inner mega-menu__inner--shop">
       <nav class="shop-menu" aria-label="{{ 'header.nav.shop' | t }}">
         <ul class="shop-menu__list" role="list">
+          {%- comment -%}
+            Varietal Honeys has its own collection grid page (Step 15). The
+            other two groups only hold a single product each, so their
+            headings skip straight to that product page instead.
+          {%- endcomment -%}
           {%- render 'shop-menu-group', collection_handle: 'varietal-honeys', product_handles: 'chestnut-honey,forest-honey' -%}
-          {%- render 'shop-menu-group', collection_handle: 'exclusive-limited-edition', product_handles: 'heather-and-ivy-honey' -%}
-          {%- render 'shop-menu-group', collection_handle: 'exclusive-giftpacks' -%}
+          {%- render 'shop-menu-group', collection_handle: 'exclusive-limited-edition', product_handles: 'heather-and-ivy-honey', heading_url: all_products['heather-and-ivy-honey'].url -%}
+          {%- render 'shop-menu-group', collection_handle: 'exclusive-giftpacks', product_handles: 'gift-bundle', heading_url: all_products['gift-bundle'].url -%}
         </ul>
       </nav>
     </div>

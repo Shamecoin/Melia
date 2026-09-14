@@ -10,9 +10,14 @@
       <div class="site-footer__column">
         <h3 class="site-footer__heading">{{ 'sections.footer.shop' | t }}</h3>
         <ul class="site-footer__list" role="list">
+          {%- comment -%}
+            Varietal Honeys has its own collection page (Step 15); the other
+            two are single-product groups, so they link straight to that
+            product instead of an empty collection grid.
+          {%- endcomment -%}
           <li><a href="{{ collections['varietal-honeys'].url }}">{{ collections['varietal-honeys'].title | default: 'Varietal Honeys' }}</a></li>
-          <li><a href="{{ collections['exclusive-limited-edition'].url }}">{{ collections['exclusive-limited-edition'].title | default: 'Exclusive & Limited Edition' }}</a></li>
-          <li><a href="{{ collections['exclusive-giftpacks'].url }}">{{ 'sections.footer.giftpack_bundles' | t }}</a></li>
+          <li><a href="{{ all_products['heather-and-ivy-honey'].url }}">{{ collections['exclusive-limited-edition'].title | default: 'Exclusive & Limited Edition' }}</a></li>
+          <li><a href="{{ all_products['gift-bundle'].url }}">{{ 'sections.footer.giftpack_bundles' | t }}</a></li>
         </ul>
       </div>
 
