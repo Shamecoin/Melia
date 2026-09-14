@@ -71,6 +71,11 @@
   },
   "products": {
     "view_more": "View More",
-    "coming_soon": "Coming soon."
+    "coming_soon": "Coming soon.",
+    "quantity": "Quantity",
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "how_to_use": "How to Use",
+    "ingredients": "Ingredients"
   }
 }
