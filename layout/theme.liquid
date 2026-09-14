@@ -23,6 +23,11 @@
 
     {{ content_for_header }}
 
+    <script>
+      window.Shopify = window.Shopify || {};
+      window.Shopify.money_format = {{ shop.money_format | json }};
+    </script>
+
     {%- style -%}
       :root {
         --color-cream: {{ settings.color_cream }};
@@ -55,6 +60,7 @@
     {{ 'main-collection.css' | asset_url | stylesheet_tag }}
     {{ 'main-product.css' | asset_url | stylesheet_tag }}
     {{ 'product-recipes.css' | asset_url | stylesheet_tag }}
+    {{ 'cart-drawer.css' | asset_url | stylesheet_tag }}
   </head>
 
   <body class="template-{{ template.name }}{% if template.name == 'index' %} has-hero{% endif %}">
@@ -75,5 +81,6 @@
     {{ 'honey-tabs.js' | asset_url | script_tag }}
     {{ 'accordion.js' | asset_url | script_tag }}
     {{ 'news-recipes.js' | asset_url | script_tag }}
+    {{ 'cart-drawer.js' | asset_url | script_tag }}
   </body>
 </html>

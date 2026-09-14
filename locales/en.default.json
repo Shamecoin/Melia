@@ -77,5 +77,14 @@
     "sold_out": "Sold Out",
     "how_to_use": "How to Use",
     "ingredients": "Ingredients"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty.",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity"
   }
 }
